@@ -17,7 +17,19 @@ Opens on http://localhost:3211. Crawlers are blocked (`robots.ts` + `noindex` me
 
 ## Waitlist
 
-The form posts to `src/app/api/waitlist/route.ts`. In development entries land in `data/waitlist.jsonl` (git-ignored). For the live site set `WAITLIST_WEBHOOK_URL` (see `.env.example`) and every sign-up is POSTed there as JSON.
+The form posts to `src/app/api/waitlist/route.ts`. On the live site each sign-up is emailed to info@sarathi.online through Resend (Vercel Marketplace integration; `RESEND_API_KEY`). Without that key, `WAITLIST_WEBHOOK_URL` is used if set; otherwise (local development) entries land in `data/waitlist.jsonl` (git-ignored). See `.env.example`.
+
+### Email DNS (one-time)
+
+Resend sends from `waitlist@sarathi.online`, so the domain must be verified once. Add these records at the registrar for `sarathi.online` (values from the Resend dashboard / `vercel integration open resend`):
+
+| Record | Type | Name | Value |
+|---|---|---|---|
+| DKIM | TXT | `resend._domainkey` | `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDIjSEJdODP90b1QxjfwizE2OeCyEntP5UjRtCzWSbdCBkNk8NCOZ813hODJmmrInHlM31lEXBDSwfnWz9uRG4gdf7oO6nFjQdrsFyXx5jihxAk2phQd7ePQ4aV4ut+TFNUR4CYcos5MfWT6D4ZvpbbYseLZ0kZmqaWTWql+vH80QIDAQAB` |
+| SPF | MX (priority 10) | `send` | `feedback-smtp.us-east-1.amazonses.com` |
+| SPF | TXT | `send` | `v=spf1 include:amazonses.com ~all` |
+
+Until these are live, Resend refuses to send and the form shows "We couldn't save that just now."
 
 ## Where things live
 

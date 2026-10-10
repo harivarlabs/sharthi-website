@@ -8,3 +8,6 @@ next-env.d.ts
 
 # Waitlist sign-ups
 data/
+
+.vercel
+.env*
