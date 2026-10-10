@@ -17,19 +17,20 @@ Opens on http://localhost:3211. Crawlers are blocked (`robots.ts` + `noindex` me
 
 ## Waitlist
 
-The form posts to `src/app/api/waitlist/route.ts`. On the live site each sign-up is emailed to info@sarathi.online through Resend (Vercel Marketplace integration; `RESEND_API_KEY`). Without that key, `WAITLIST_WEBHOOK_URL` is used if set; otherwise (local development) entries land in `data/waitlist.jsonl` (git-ignored). See `.env.example`.
+The form posts to `src/app/api/waitlist/route.ts`. On the live site each sign-up is emailed to info@sharthi.online through Resend (Vercel Marketplace integration; `RESEND_API_KEY`). Without that key, `WAITLIST_WEBHOOK_URL` is used if set; otherwise (local development) entries land in `data/waitlist.jsonl` (git-ignored). See `.env.example`.
 
 ### Email DNS (one-time)
 
-Resend sends from `waitlist@sarathi.online`, so the domain must be verified once. Add these records at the registrar for `sarathi.online` (values from the Resend dashboard / `vercel integration open resend`):
+Resend sends from `waitlist@sharthi.online`, so the domain must be verified once. Add these records in the DNS zone for `sharthi.online` (Hostinger → Domains → DNS / Name servers). Enter just the name shown; Hostinger appends `.sharthi.online`.
 
 | Record | Type | Name | Value |
 |---|---|---|---|
-| DKIM | TXT | `resend._domainkey` | `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDIjSEJdODP90b1QxjfwizE2OeCyEntP5UjRtCzWSbdCBkNk8NCOZ813hODJmmrInHlM31lEXBDSwfnWz9uRG4gdf7oO6nFjQdrsFyXx5jihxAk2phQd7ePQ4aV4ut+TFNUR4CYcos5MfWT6D4ZvpbbYseLZ0kZmqaWTWql+vH80QIDAQAB` |
+| DKIM | TXT | `resend._domainkey` | `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJOIFRLr7/LnYoIVUIhniNvngRBA3x9e/MniHEul1wBobtQdQLb+Pcm2ZAIPOsak04xzddh7bFEF12ytmGckXM6vBrBkMqimdmLVcagVB0HiR5V/ghfKxmlC9uPmGiY6K+ePerU82JHNHmZ2G+rLIyRJ6N5dklFEayNFxZJBxFyQIDAQAB` |
 | SPF | MX (priority 10) | `send` | `feedback-smtp.us-east-1.amazonses.com` |
 | SPF | TXT | `send` | `v=spf1 include:amazonses.com ~all` |
+| Tracking | CNAME | `rsend` | `send.forge.rmta.net` |
 
-Until these are live, Resend refuses to send and the form shows "We couldn't save that just now."
+These are on the `send` / `rsend` subdomains, so they do not interfere with the Zoho mailbox on the root domain. Until they are live, Resend refuses to send and the form shows "We couldn't save that just now."
 
 ## Where things live
 

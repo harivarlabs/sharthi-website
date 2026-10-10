@@ -51,8 +51,8 @@ async function postWebhook(e: Entry): Promise<boolean> {
 /** One email per sign-up to the team inbox, with reply-to set to the person who signed up. */
 async function sendEmail(e: Entry): Promise<boolean> {
   const to = process.env.WAITLIST_TO ?? site.email;
-  const domain = process.env.RESEND_EMAIL_DOMAIN ?? site.email.split("@")[1];
-  const from = process.env.WAITLIST_FROM ?? `Sharthi waitlist <waitlist@${domain}>`;
+  // Sender domain follows the team address (verified in Resend), not the integration's RESEND_EMAIL_DOMAIN.
+  const from = process.env.WAITLIST_FROM ?? `Sharthi waitlist <waitlist@${site.email.split("@")[1]}>`;
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c] ?? c);
   const rows: [string, string][] = [
     ["Name", e.name],
