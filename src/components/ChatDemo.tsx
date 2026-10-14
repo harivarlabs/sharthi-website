@@ -35,7 +35,7 @@ const EXAMPLES: Example[] = [
     verse: { ref: "Bhagavad Gita 6.17", sanskrit: "युक्ताहारविहारस्य युक्तचेष्टस्य कर्मसु", meaning: "Balanced food, rest and effort: this yoga removes sorrow." },
     step: "आज रात सोने से एक घंटा पहले फ़ोन दूसरे कमरे में रख दें; उसकी जगह दो पन्ने पढ़ें।",
     reads: [
-      ["spoke", "Rhythm"],
+      ["spoke", "Sleep"],
       ["theme", "sleep, screens"],
       ["verse", "Gita 6.17"],
       ["asks next", "कल किस समय सोने का विचार है?"],
@@ -63,7 +63,7 @@ const EXAMPLES: Example[] = [
     verse: { ref: "Bhagavad Gita 3.19", sanskrit: "तस्मादसक्तः सततं कार्यं कर्म समाचर", meaning: "Therefore, without attachment, always do the work that is to be done." },
     step: "Tomorrow, do one chore at home without being asked, and do not mention it.",
     reads: [
-      ["spoke", "Seva"],
+      ["spoke", "Helping"],
       ["theme", "karma yoga"],
       ["verse", "Gita 3.19"],
       ["asks next", "Who at home could use a hand this week?"],

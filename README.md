@@ -2,7 +2,9 @@
 
 Marketing site for **Sharthi**, the daily-reflection app. Built like [manageme.si](https://manageme.si) (section order) with footer/legal structure borrowed from [visity.io](https://www.visity.io).
 
-Pages: `/` (hero → two ways in → how it works → Ask → Report → FAQ → contact), `/about`, `/terms`, `/privacy`, `/disclaimer`.
+Pages: `/` (hero → how it works → try it (3-question demo) → Ask → the wheel + features + week view → FAQ → what's coming → waitlist), `/about`, `/terms`, `/privacy`, `/disclaimer`.
+
+Written for non-technical readers: everyday words first (Sleep, Prayer, Food, Screens, Mind, Work, Helping), the traditional terms second.
 
 Stack: Next.js 16 (App Router) + Tailwind 4, same fonts and palette as the app (Rasa for headings, Mukta for body).
 
@@ -45,6 +47,7 @@ src/
   components/WaitlistForm.tsx + app/api/waitlist/route.ts   the waitlist
   components/Wheel.tsx     the seven-spoke chariot wheel (SVG), tappable; sample scores, notes, sankalps
   components/Mockups.tsx   the hero phone (cycles Reflect → Report → Ask → Wisdom → Journey) + light mockups
+  components/TryItNow.tsx  the on-page demo: three tap questions → mini wheel, "Sharthi says", verse, promise (nothing saved)
   components/ChatDemo.tsx  the four example conversations in the Ask section
   components/Audience.tsx  the rotating "For …" line in the hero
 ```

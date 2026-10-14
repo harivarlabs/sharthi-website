@@ -1,6 +1,5 @@
 export const NAV = [
   ["How it works", "/#how"],
-  ["Ask", "/#ask"],
-  ["Report", "/#report"],
+  ["Try it", "/#try"],
   ["Questions", "/#faq"],
 ] as const;

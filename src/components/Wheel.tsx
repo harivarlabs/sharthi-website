@@ -14,16 +14,17 @@ const HIT = 168;
 const cos = (a: number) => Math.round(Math.cos(a) * 1000) / 1000;
 const sin = (a: number) => Math.round(Math.sin(a) * 1000) / 1000;
 
-export type Spoke = { name: string; score: number; care?: boolean; note: string; sankalp: string };
+export type Spoke = { name: string; sanskrit: string; score: number; care?: boolean; note: string; sankalp: string };
 
+/** The seven parts of a day, in everyday words first and the traditional word second. */
 export const SAMPLE_SPOKES: Spoke[] = [
-  { name: "Rhythm", score: 6, note: "Slept at ten past twelve; the day started late and hurried.", sankalp: "Lights out by eleven." },
-  { name: "Sadhana", score: 8, note: "Morning prayer and ten quiet minutes before the phone.", sankalp: "Keep the ten minutes; add one verse." },
-  { name: "Food & body", score: 7, note: "A 25-minute walk; dinner was late and heavy.", sankalp: "Dinner by eight, something light." },
-  { name: "Senses", score: 4, care: true, note: "Three hours of screens, most of them after ten at night.", sankalp: "Phone stays outside the bedroom after nine." },
-  { name: "Mind", score: 5, care: true, note: "A flash of anger at work, and the mind kept replaying it.", sankalp: "Three slow breaths before replying when irritated." },
-  { name: "Karma", score: 8, note: "Finished what you set out to do, without rushing.", sankalp: "Start tomorrow with the hardest task." },
-  { name: "Seva", score: 7, note: "Helped at home without being asked.", sankalp: "One small act of help, unmentioned." },
+  { name: "Sleep", sanskrit: "Dinacharya", score: 6, note: "Slept after midnight, so the day started late and in a hurry.", sankalp: "Lights off by 11 tonight." },
+  { name: "Prayer", sanskrit: "Sadhana", score: 8, note: "Morning prayer and ten quiet minutes before touching the phone.", sankalp: "Keep the ten quiet minutes." },
+  { name: "Food", sanskrit: "Ahara", score: 7, note: "A 25-minute walk; dinner was late and heavy.", sankalp: "Dinner by 8, something light." },
+  { name: "Screens", sanskrit: "Indriya", score: 4, care: true, note: "Three hours of screens, most of them after 10 at night.", sankalp: "Phone stays out of the bedroom after 9." },
+  { name: "Mind", sanskrit: "Manas", score: 5, care: true, note: "A flash of anger at work, and the mind kept replaying it.", sankalp: "Three slow breaths before replying when irritated." },
+  { name: "Work", sanskrit: "Karma", score: 8, note: "Finished what you set out to do, without rushing.", sankalp: "Start tomorrow with the hardest task." },
+  { name: "Helping", sanskrit: "Seva", score: 7, note: "Helped at home without being asked.", sankalp: "One small act of help, without mentioning it." },
 ];
 
 function petal(r0: number, r1: number, w = 12) {

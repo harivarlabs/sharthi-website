@@ -197,7 +197,7 @@ function ReportScreen({ onTouch }: { onTouch: () => void }) {
         aside={
           <div className="shrink-0 text-right">
             <p className="font-display text-3xl leading-none text-night-brass">65</p>
-            <p className="whitespace-nowrap text-[0.7rem] text-sandal-3">Sattva · steady</p>
+            <p className="whitespace-nowrap text-[0.7rem] text-sandal-3">Day score</p>
           </div>
         }
       />
@@ -210,7 +210,7 @@ function ReportScreen({ onTouch }: { onTouch: () => void }) {
         }}
         className="mx-auto mt-1 w-[82%]"
       />
-      <p className="text-center text-[0.7rem] text-sandal-3">Tap a spoke to see why</p>
+      <p className="text-center text-[0.7rem] text-sandal-3">Tap any part of the wheel to see why</p>
       <div key={active} className="rise mt-2 rounded-lg bg-night px-3 py-2 text-sm">
         <div className="flex items-center justify-between">
           <span className={`font-semibold ${tone}`}>
@@ -225,7 +225,7 @@ function ReportScreen({ onTouch }: { onTouch: () => void }) {
         <p className="mt-1 text-sandal-2">{spoke.note}</p>
       </div>
       <div key={`s-${active}`} className="rise mt-2 rounded-xl border border-night-brass/40 bg-night-brass-soft px-3 py-2 text-sm text-sandal">
-        <span className="font-semibold text-night-brass">Sankalp for tomorrow</span>
+        <span className="font-semibold text-night-brass">Your promise for tomorrow</span>
         <br />
         {spoke.sankalp}
       </div>
@@ -269,7 +269,7 @@ function WisdomScreen() {
   ];
   return (
     <div className="text-sm">
-      <ScreenTitle kicker="Wisdom" title="47 verses, three languages" />
+      <ScreenTitle kicker="Wisdom" title="47 verses, in your language" />
       <div className="mt-3 flex items-center gap-2 rounded-full border border-night-line bg-night px-3.5 py-2 text-sandal-3">
         <svg viewBox="0 0 20 20" className="size-4" fill="none" aria-hidden>
           <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.6" />
@@ -332,7 +332,7 @@ function JourneyScreen() {
       <dl className="mt-3 grid gap-2">
         {[
           ["Seven-day average", "58", "text-sandal"],
-          ["Most improved", "Senses, +3", "text-night-peacock"],
+          ["Most improved", "Screens, +3", "text-night-peacock"],
           ["Next week's focus", "Mind", "text-night-kumkum"],
         ].map(([k, v, c]) => (
           <div key={k} className="flex items-center justify-between rounded-lg bg-night px-3 py-2">
@@ -341,7 +341,7 @@ function JourneyScreen() {
           </div>
         ))}
       </dl>
-      <p className="mt-3 text-center text-[0.7rem] text-sandal-3">Sattva over time, one evening at a time</p>
+      <p className="mt-3 text-center text-[0.7rem] text-sandal-3">Your day score, one evening at a time</p>
     </div>
   );
 }
@@ -430,7 +430,7 @@ export function JourneyMock() {
       <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
         <div className="rounded-lg bg-paper px-3 py-2">
           <dt className="text-ink-3">Most improved</dt>
-          <dd className="font-semibold text-peacock">Senses, +3</dd>
+          <dd className="font-semibold text-peacock">Screens, +3</dd>
         </div>
         <div className="rounded-lg bg-paper px-3 py-2">
           <dt className="text-ink-3">Next week&rsquo;s focus</dt>
